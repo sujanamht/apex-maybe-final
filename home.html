@@ -37,13 +37,21 @@
   </head>
   <body class="bg-gray-50 text-gray-800">
     <!-- Navbar -->
-    <header class="absolute top-0 left-0 w-full z-10 bg-transparent text-white">
+    <header
+      id="main-navbar"
+      class="absolute top-0 left-0 w-full z-20 bg-transparent text-white transition-all duration-300"
+    >
       <div
         class="container mx-auto flex justify-between items-center p-4 px-14"
       >
-        <img src="logo.png" alt="APEX-FTE Logo" class="h-24" />
+        <img
+          id="navbar-logo"
+          src="img/logo.png"
+          alt="APEX-FTE Logo"
+          class="h-24 transition-all duration-300"
+        />
         <nav>
-          <ul class="flex gap-6 text-md font-medium">
+          <ul class="flex gap-6 text-md font-semibold">
             <li>
               <a
                 href="#"
@@ -96,14 +104,14 @@
       class="relative h-[60vh] text-white bg-cover bg-top flex flex-col justify-end"
       style="
         background-image: linear-gradient(
-            rgba(50, 11, 95, 0.4),
-            rgba(4, 0, 12, 0.8)
+            rgba(50, 11, 95, 0.5),
+            rgba(4, 0, 12, 0.9)
           ),
-          url('home1.png');
+          url('img/home1.png');
       "
     >
       <div class="container mx-auto text-center px-4 pb-8">
-        <h1 class="text-3xl md:text-5xl font-bold mb-6">
+        <h1 class="text-2xl md:text-5xl font-bold mb-10">
           Your Cargo. Our Priority. Always on Time.
         </h1>
         <form
@@ -248,7 +256,7 @@
           class="relative w-full md:w-3/5 h-80 md:h-[420px] flex-shrink-0 grow flex items-center justify-center"
         >
           <img
-            src="about1.png"
+            src="img/about1.png"
             alt="APEX Worldwide Express Office"
             class="w-auto h-full object-cover rounded-3xl shadow-2xl z-10"
           />
@@ -258,7 +266,7 @@
           ></div>
 
           <img
-            src="package.png"
+            src="img/package.png"
             alt="APEX Worldwide Express Office"
             class="w-auto h-72 z-20 absolute -bottom-32 -right-24"
           />
@@ -554,7 +562,7 @@
               class="flex justify-center md:justify-start items-center bg-white rounded-lg p-2 max-w-[200px]"
             >
               <img
-                src="logo.png"
+                src="img/logo.png"
                 alt="Apex Logo"
                 class="h-16 w-auto mx-auto transition-transform duration-300 hover:scale-105"
               />
@@ -681,5 +689,57 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("main-navbar");
+        const logo = document.getElementById("navbar-logo");
+        if (window.scrollY > 10) {
+          navbar.classList.add(
+            "fixed",
+            "bg-white",
+            "text-primary",
+            "shadow",
+            "z-50",
+            "border-b-2",
+            "border-primary"
+          );
+          navbar.classList.remove(
+            "absolute",
+            "bg-transparent",
+            "text-white",
+            "z-20",
+            "border-b-0",
+            "border-transparent"
+          );
+          if (logo) {
+            logo.classList.remove("h-24");
+            logo.classList.add("h-16");
+          }
+        } else {
+          navbar.classList.remove(
+            "fixed",
+            "bg-white",
+            "text-primary",
+            "shadow",
+            "z-50",
+            "border-b-2",
+            "border-primary"
+          );
+          navbar.classList.add(
+            "absolute",
+            "bg-transparent",
+            "text-white",
+            "z-20",
+            "border-b-0",
+            "border-transparent"
+          );
+          if (logo) {
+            logo.classList.remove("h-16");
+            logo.classList.add("h-24");
+          }
+        }
+      });
+    </script>
   </body>
 </html>
